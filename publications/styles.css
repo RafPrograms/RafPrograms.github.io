@@ -1,0 +1,114 @@
+/* ----------------------------
+   Sidebar auto-width for About page
+----------------------------- */
+.sidebar {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  width: max-content;
+  min-width: 140px; /* adjust to fit longest sidebar word */
+  padding: 1em 1em;
+  height: calc(100% - 50px);
+  background-color: #800020;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  color: white;
+  z-index: 2;
+  white-space: nowrap;
+}
+
+/* Shift top-banner and container according to sidebar width */
+.top-banner {
+  margin-left: 160px; /* slightly larger than min-width */
+  width: calc(100% - 160px);
+  display: flex;
+  height: 240px;
+  position: relative;
+  overflow: hidden;
+  background-color: #f4f4f4;
+}
+
+/* Remove owner photo block for About page */
+.owner-photo-square {
+  display: none;
+}
+
+/* Make mountain-wrapper fill full width of banner */
+.mountain-wrapper {
+  flex-grow: 1;
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+}
+
+.mountain-banner {
+  height: 260px;
+  transform: translateY(-20px);
+  position: relative;
+  background-image: url("../images/mountain-banner.jpg");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+/* Welcome text replaced in HTML by "About", so keep styles */
+.welcome-text {
+  position: absolute;
+  top: 60px;
+  left: 60px;
+  font-size: 2rem;
+  color: white;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+  z-index: 2;
+  max-width: 60%;
+}
+
+/* Container margin adjusted */
+.container {
+  flex-grow: 1;
+  margin-left: 160px;
+  padding: 1.5em;
+  max-width: 1000px;
+}
+
+/* Keep other global styles for sidebar links, hover, footer, etc. */
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+    box-shadow: none;
+    top: 0;
+    padding: 1em;
+    white-space: normal;
+  }
+
+  .top-banner {
+    margin-left: 0;
+    width: 100%;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .owner-photo-square {
+    display: none;
+  }
+
+  .mountain-wrapper {
+    width: 100%;
+    height: 200px;
+  }
+
+  .mountain-banner {
+    height: 220px;
+    transform: translateY(-20px);
+  }
+
+  .container {
+    margin-left: 0;
+    padding: 1em;
+    max-width: 100%;
+  }
+}
